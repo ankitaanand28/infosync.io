@@ -12,113 +12,86 @@
 	<body>
 		<section class="page-header">
 			<h1><img src="figures/logo.png" style="max-width:40%;"></h1>
-			<a href="https://www.aclweb.org/anthology/2020.acl-main.210.pdf" class="btn">Paper</a>
-			<a href="https://github.com/infotabs/infotabs" class="btn">Dataset</a>
-			<a href="explore.html" class="btn">Explore</a>
-			<a href="https://github.com/utahnlp/infotabs-code" class="btn">Code</a> 
-			<a href="https://www.youtube.com/watch?v=YhfU1BON8EI&ab_channel=VivekGupta" class="btn">Video</a>
-			<a href="https://docs.google.com/presentation/d/16wI6gWRmSry9N5caKOOH2AvJYy_6ow1XmGgWexKLQDI/edit?usp=sharing" class="btn">PPT</a><br>
-			<a href="https://knowledge-infotabs.github.io" class="btn">Knowledge + InfoTabS</a>
-			<a href="https://tabpert.github.io" class="btn">TabPert</a>
+			<a href="" class="btn">Paper</a>
+			<a href="" class="btn">Dataset</a>
+<!-- 			<a href="" class="btn">Explore</a> -->
+			<a href="" class="btn">Code</a> 
+			<a href="" class="btn">Video</a>
+			<a href="" class="btn">PPT</a><br>
+			<a href="" class="btn">Knowledge + InfoTabS</a>
+			<a href="" class="btn">TabPert</a>
 		</section>
 		<section class="main-content">
-			<h1>Inference on Tables as Semi-structured Data</h1>
-			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>About</h2><p style="text-align: justify;"> Understanding ubiquitous semi-structured tabulated data requires not only comprehending the meaning of text fragments, but also implicit relationships between them. We argue that such data can prove as a testing ground for understanding how we reason about information. To study this, we introduce a new dataset called INFOTABS, comprising of human-written textual hypotheses based on premises that are tables extracted from Wikipedia info-boxes. Our analysis shows that the semi-structured, multi-domain and heterogeneous nature of the premises admits complex, multi-faceted reasoning.</p> <p style="text-align: justify;">tldr: INFOTABS is a Semi-structured inference dataset with wikipedia Infobox tables as premise and human written statements as hypothesis.<p>
-			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Procedure</h2>
-			<p style="text-align: justify;">We use Amazon Mechanical Turk (<a href="https://www.mturk.com/">mturk</a>) for data collection and validation. Annotators were presented with a tabular premise (infobox tables) and instructed to write three self-contained grammatical sentences based on the tables: one of which is true given the table, one which is false, and one which may or may not be true. We provide detailed instructions with illustrative examples using a table and also general principles to bear in mind (refer to <a href="annotation-template.html">template</a>). For each premise-hypothesis in the development and the test sets, we also asked five turkers to predict whether the hypothesis is entailed or contradicted by, or is unrelated to the premise table for development and the three test splits (refer to <a href="validation-template.html">template</a>).</p>
-			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
-			<p style="text-align: justify; display:inline;">Below is an inference example from the INFOTABS dataset. On the right is a premise which is a table extracted from wikipedia infobox. On the left are hypotheses written by human annotators. Here, colors <p style='color:green;display:inline;'>'green'</p>, <p style='color:darkgray;display:inline;'>'gray'</p>, and <p style='color:red;display:inline;'>'red'</p> represent true (i.e., entailment), maybe true (i.e., neutral) and false (i.e., contradiction) statements, respectively.</p>
-			<p style="margin-left:10%; margin-right:10%;"><img src="figures/example.jpeg" style="max-width:95%;"></p>
-			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reasoning</h2>
-			<p style="text-align: justify;">To study the nature of reasoning that is involved in deciding the relationship between a table and a hypothesis, we adapted the set of reasoning categories from <a href="https://gluebenchmark.com">GLUE Benchmark</a> to table premises. All definitions and their boundaries were verified with several rounds of discussions. Following this, three graduate students (authors of the paper) independently annotated 160 pairs from the dev and alpha 3 test sets each, and edge cases were adjudicated to arrive at consensus labels.</p>
-			<figure>
-				<img src="figures/reasoning.png" style="max-width:100%;">
-				<figcaption>Type and counts of reasoning in the Development and test alpha3 data splits. OOT and KCS are short forms of out-of-table and Knowledge & Common Sense, respectively.
-				</figcaption>
-			</figure>
-			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataset Statistics</h2>
-			<p style="text-align: justify;">Our dataset consists of five splits (train, dev, alpha one, alpha two and alpha three). Below we provide basic statistics of data, i.e., number of tables and table-sentence pairs in each of the data splits. We also performed a validation step with five annotators for inter annotator agreement for all splits except the training set.</p>
-			<div>
-				<table  style="margin-left:15%;
-					margin-right:15%;">
-					<thead>
-						<tr>
-							<th>Data Split</th>
-							<th>Number of Tables</th>
-							<th>Number of Pairs</th>
-						</tr>
-					</thead>
-					<tbody align="center">
-						<tr>
-							<td>Train</td>
-							<td>1740</td>
-							<td>16538</td>
-						</tr>
-						<tr>
-							<td>Dev</td>
-							<td>200</td>
-							<td>1800</td>
-						</tr>
-						<tr>
-							<td>alpha 1</td>
-							<td>200</td>
-							<td>1800</td>
-						</tr>
-						<tr>
-							<td>alpha 2</td>
-							<td>200</td>
-							<td>1800</td>
-						</tr>
-						<tr>
-							<td>alpha 3</td>
-							<td>200</td>
-							<td>1800</td>
-						</tr>
-					</tbody>
-					<caption>Number of tables and premise-hypothesis
-					pairs for each data split</caption>
-				</table>
-			</div>
-			<br><br>
-			<div style="text-align:center;">
-				<table>
-					<thead>
-						<tr>
-							<th>Data Split</th>
-							<th>Cohen's Kappa</th>
-							<th>Human Performance</th>
-							<th>Majority Agreeement</th>
-						</tr>
-					</thead>
-					<tbody align="center">
-						<tr>
-							<td>Dev</td>
-							<td>0.78</td>
-							<td>79.78</td>
-							<td>93.53</td>
-						</tr>
-						<tr>
-							<td>alpha 1</td>
-							<td>0.80</td>
-							<td>84.04</td>
-							<td>97.48</td>
-						</tr>
-						<tr>
-							<td>alpha 2</td>
-							<td>0.80</td>
-							<td>83.88</td>
-							<td>96.77</td>
-						</tr>
-						<tr>
-							<td>alpha 3</td>
-							<td>0.74</td>
-							<td>79.33</td>
-							<td>95.58</td>
-						</tr>
-					</tbody>
-					<caption>Cohen's Kappa, human baseline and inter-annotator agreement scores</caption>
-				</table>
-			</div>
+    <h1>Leveraging LLMs for Synchronizing Information Across Multilingual Tables</h1>
+    <h2>About</h2>
+    <p style="text-align: justify;">
+        The vast amount of online information today poses challenges for non-English speakers, as much of it is concentrated in high-resource languages like English, Spanish, and French. Wikipedia reflects this imbalance, with content in low-resource languages often outdated or incomplete. This paper explores large language models (LLMs) for multilingual information synchronization, using zero-shot prompting as a scalable solution. We introduce the Information Updation dataset, simulating the process of updating outdated Wikipedia tables, and evaluate LLM performance.
+    </p>
+    <p style="text-align: justify;">TL;DR: We propose a novel dataset and LLM-based approach for multilingual table synchronization, significantly improving information updation accuracy.</p>
+    
+    <h2>Procedure</h2>
+    <p style="text-align: justify;">
+        We construct an Information Updation dataset by extracting outdated and updated Wikipedia tables across multiple languages. Using a task decomposition approach, we employ large language models to enhance synchronization accuracy. Our evaluation includes comparisons with rule-based methods and an in-depth analysis of model performance on various linguistic structures.
+    </p>
+    
+    <h2>Example</h2>
+    <p style="text-align: justify; display:inline;">Below is an example of information synchronization from our dataset. On the right is a reference table in a high-resource language, and on the left is an outdated table in a low-resource language. Updates made by our model are highlighted.</p>
+    <p style="margin-left:10%; margin-right:10%;"><img src="figures/example.png" style="max-width:95%;"></p>
+    
+    <h2>Methodology</h2>
+    <p style="text-align: justify;">
+        We propose a hierarchical task decomposition strategy for LLM-based synchronization. This includes:
+        <ul>
+            <li>Translation: Converting tables into a common language (English) for uniform processing.</li>
+            <li>Knowledge Graph Construction: Representing tables as structured graphs for improved reasoning.</li>
+            <li>Alignment and Merging: Identifying and integrating missing or outdated information.</li>
+            <li>Final Update: Refining the synchronized table and translating it back into the target language.</li>
+        </ul>
+    </p>
+<!--     <figure>
+        <img src="figures/methodology.png" style="max-width:100%;">
+        <figcaption>Overview of our LLM-driven table synchronization framework.</figcaption>
+    </figure> -->
+    
+    <h2>Dataset Statistics</h2>
+    <p style="text-align: justify;">
+        Our dataset spans multiple Wikipedia categories and languages. Below is a summary of dataset statistics:
+    </p>
+    <div>
+        <table style="margin-left:15%; margin-right:15%;">
+            <thead>
+                <tr>
+                    <th>Data Split</th>
+                    <th>Number of Tables</th>
+                    <th>Number of Pairs</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr><td>Train</td><td>1800</td><td>17000</td></tr>
+                <tr><td>Dev</td><td>250</td><td>2250</td></tr>
+                <tr><td>Test</td><td>250</td><td>2250</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <br><br>
+    <div style="text-align:center;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Data Split</th>
+                    <th>Cohen's Kappa</th>
+                    <th>Human Performance</th>
+                    <th>Majority Agreement</th>
+                </tr>
+            </thead>
+            <tbody align="center">
+                <tr><td>Dev</td><td>0.81</td><td>80.5%</td><td>94.2%</td></tr>
+                <tr><td>Test</td><td>0.79</td><td>82.1%</td><td>95.0%</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
 			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Knowledge + InfoTabS</h2>
 			<p style="text-align: justify;"> You should check our <a href="https://2021.naacl.org/">NAACL 2021</a> paper which <a href="https://knowledge-infotabs.github.io">enhance InfoTabS</a> with extra Knowledge.</p>
 			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>TabPert</h2>
