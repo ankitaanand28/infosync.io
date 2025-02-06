@@ -22,32 +22,49 @@
 			<a href="" class="btn">TabPert</a>
 		</section>
 		<section class="main-content">
-    <h1>Leveraging LLMs for Synchronizing Information Across Multilingual Tables</h1>
-    <h2>About</h2>
+    <h1>LLM Based Information Synchronization</h1>
+<h2>About</h2>
     <p style="text-align: justify;">
-        The vast amount of online information today poses challenges for non-English speakers, as much of it is concentrated in high-resource languages like English, Spanish, and French. Wikipedia reflects this imbalance, with content in low-resource languages often outdated or incomplete. This paper explores large language models (LLMs) for multilingual information synchronization, using zero-shot prompting as a scalable solution. We introduce the Information Updation dataset, simulating the process of updating outdated Wikipedia tables, and evaluate LLM performance.
+        In today’s digital era, non-English content on platforms like Wikipedia is often outdated or incomplete, especially in low-resource languages. Our work tackles this problem through two key contributions:
     </p>
-    <p style="text-align: justify;">TL;DR: We propose a novel dataset and LLM-based approach for multilingual table synchronization, significantly improving information updation accuracy.</p>
-    
-    <h2>Procedure</h2>
+    <ul>
+        <li>
+            <strong>Information Updation Dataset:</strong> We introduce a new dataset that simulates the process of updating outdated Wikipedia tables by comparing older versions with current, human-curated tables.
+        </li>
+        <li>
+            <strong>Hierarchical Task Decomposition:</strong> Rather than a single-step update, we propose a structured approach that decomposes the synchronization task into multiple sub-tasks. This includes translating tables into a common language, converting them into knowledge graphs for improved reasoning, aligning and merging information from multiple sources, and finally updating the tables. This methodology not only improves performance but also offers interpretability and modularity to address complex edge cases.
+        </li>
+    </ul>
     <p style="text-align: justify;">
-        We construct an Information Updation dataset by extracting outdated and updated Wikipedia tables across multiple languages. Using a task decomposition approach, we employ large language models to enhance synchronization accuracy. Our evaluation includes comparisons with rule-based methods and an in-depth analysis of model performance on various linguistic structures.
-    </p>
-    
-    <h2>Example</h2>
+	    <h2>Example</h2>
     <p style="text-align: justify; display:inline;">Below is an example of information synchronization from our dataset. On the right is a reference table in a high-resource language, and on the left is an outdated table in a low-resource language. Updates made by our model are highlighted.</p>
     <p style="margin-left:10%; margin-right:10%;"><img src="figures/example.png" style="max-width:95%;"></p>
     
+        <em>Example:</em> Consider an outdated table in a low-resource language alongside a current table in a high-resource language. Our approach first translates both tables to English, then represents them as knowledge graphs. These graphs help the model identify discrepancies and missing data, and through alignment and merging, the model updates the outdated table. This example illustrates the essence of information synchronization—updating and enriching content across different languages.
+    </p>
+    
     <h2>Methodology</h2>
     <p style="text-align: justify;">
-        We propose a hierarchical task decomposition strategy for LLM-based synchronization. This includes:
-        <ul>
-            <li>Translation: Converting tables into a common language (English) for uniform processing.</li>
-            <li>Knowledge Graph Construction: Representing tables as structured graphs for improved reasoning.</li>
-            <li>Alignment and Merging: Identifying and integrating missing or outdated information.</li>
-            <li>Final Update: Refining the synchronized table and translating it back into the target language.</li>
-        </ul>
+        Our solution leverages large language models (LLMs) through a detailed hierarchical task decomposition strategy. Reviewers specifically asked about the necessity of each decomposition step, so we provide the following justifications:
     </p>
+    <ul>
+        <li>
+            <strong>Translation:</strong> Converting all tables to English ensures consistency, as most state-of-the-art LLMs are optimized for English, reducing noise from translation discrepancies.
+        </li>
+        <li>
+            <strong>Knowledge Graph Construction:</strong> Representing tables as structured graphs enhances the model’s reasoning abilities, as LLMs perform better with graph-structured information compared to raw tabular data.
+        </li>
+        <li>
+            <strong>Alignment and Merging:</strong> The merging step is critical to identify overlapping, missing, or outdated information. It ensures that the most accurate and comprehensive data is preserved in the final output, and it addresses ambiguities that could arise from a direct update.
+        </li>
+        <li>
+            <strong>Final Update:</strong> Once the information is aligned and merged, the updated knowledge graph is converted back to a table. This step is essential to reconcile differences and produce a coherent output that mirrors a human-curated table.
+        </li>
+    </ul>
+    <p style="text-align: justify;">
+        Each of these steps was introduced to tackle specific challenges identified during the review process, and together they form a robust framework for multilingual information synchronization.
+    </p>
+<!--     -->
 <!--     <figure>
         <img src="figures/methodology.png" style="max-width:100%;">
         <figcaption>Overview of our LLM-driven table synchronization framework.</figcaption>
@@ -96,11 +113,13 @@
 			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>People</h2>
 			<p style="text-align: justify;"> The INFOSYNC dataset is prepared at the <a href="https://www.cs.utah.edu/"> School of Computing</a> of <a href="https://www.cs.utah.edu/">University of Utah</a> and IIT Guwahati by the following people: </p>
 			<figure>
-				<img src="figures/vivekg.jpg" style="width:25%; height:250px;">
+				
 				<img src="figures/Siddharth.jpg" style="width:25%; height:250px;">
-				<img src="" style="width:21%;height:250px;">
+				<img src="figures/tushar.png" style="width:21%;height:250px;">
 				<img src="figures/ankitaanand.jpg" style="width:23%;height:250px;">
-				<figcaption>From left to right, <a href="https://vgupta123.github.io">Vivek Gupta</a>,Siddharth Khincha,Tushar Kataria and Ankita Anand. </figcaption>
+				<img src="figures/dan.png" style="width:21%;height:250px;">
+				<img src="figures/vivekg.jpg" style="width:25%; height:250px;">
+				<figcaption>From left to right, Siddharth Khincha, Tushar Kataria, Ankita Anand, Dan Roth and <a href="https://vgupta123.github.io">Vivek Gupta</a>. </figcaption>
 			</figure>
 			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citation</h2>
 			<p style="text-align: justify;"> Please cite our paper as below if you use the INFOSYNC dataset.</p>
@@ -109,8 +128,7 @@
 <!-- 				citation -->
 			</code></pre>
 			<h2><a id="user-content-header-2" class="anchor" href="#header-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgement</h2>
-			<p style="text-align: justify;">Authors thank members of the <a href="https://svivek.com/">Utah NLP group </a>  for their valuable insights and
-			suggestions at various stages of the project; and <a href="https://2025.naacl.org/">NAACL 2025</a> reviewers for pointers to
+			<p style="text-align: justify;">Authors sincerely thank the reviewers and meta-reviewer for their valuable time and thoughtful evaluation of their work and <a href="https://2025.naacl.org/">NAACL 2025</a> reviewers for pointers to
 			related works, corrections, and helpful comments. Authors thank the largest free resource <a href="https://en.wikipedia.org/wiki/Main_Page"> Wikipedia</a> for InfoSync tables.</p>
 			<footer class="site-footer">
 				<span class="site-footer-owner"><a href="https://infosync.github.io">INFOSYNC</a> is maintained by <a href="https://vgupta123.github.io">Vivek Gupta</a>.</span>
